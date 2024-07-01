@@ -6,37 +6,37 @@ classDiagram
     Pessoa <|-- Passageiro
     
     class Pessoa {
-        +nome: string
-        +telefone: string
-        +endereco: string
-        +id: string
+        -nome: string
+        -telefone: string
+        -endereco: string
+        -id: string
     }
 
     class Motorista {
-        +CNH: string
+        -CNH: string
     }
 
     class Passageiro {
-        +CNS: string
+        -CNS: string
     }
 
     class Veiculo {
-        +Id: string
-        +modelo: string
-        +placa: string
-        +vagas: int
+        -Id: string
+        -modelo: string
+        -placa: string
+        -vagas: int
     }
 
     class Viagem {
-        +motorista: Motorista
-        +horario: DateTime
-        +veiculo: Veiculo
-        +data: DateTime
-        +roteiro: string
-        +passageiros: Passageiro
-        +procedimento: string
-        +destino: string
-        +horarioDeAtendimento: string
+        -motorista: Motorista
+        -horario: DateTime
+        -veiculo: Veiculo
+        -data: DateTime
+        -roteiro: string
+        -passageiros: Passageiro
+        -procedimento: string
+        -destino: string
+        -horarioDeAtendimento: string
     }
 
     Viagem o-- Veiculo
