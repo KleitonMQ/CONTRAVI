@@ -11,7 +11,13 @@ classDiagram
     class Pessoa {
         -nome: string
         -telefone: string
-        -endereco: string
+        -cep: string
+        -uf: string
+        -cidade: string
+        -bairro: string
+        -logradouro: string
+        -numero: string
+        -complemento: string
         -id: string
     }
 
@@ -56,7 +62,13 @@ erDiagram
         string nome
         string telefone
         string CNH
-        string endereco
+        string cep
+        string uf
+        string cidade
+        string bairro
+        string logradouro
+        string numero
+        string complemento
     }
 
     PASSAGEIRO {
@@ -64,7 +76,13 @@ erDiagram
         string nome
         string telefone
         string CNS
-        string endereco
+        string cep
+        string uf
+        string cidade
+        string bairro
+        string logradouro
+        string numero
+        string complemento
     }
 
     VEICULO {
