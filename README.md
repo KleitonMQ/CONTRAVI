@@ -11,6 +11,11 @@ classDiagram
     class Pessoa {
         -nome: string
         -telefone: string
+        -id: string
+        -endereco: Endereco
+    }
+
+    class Endereco {
         -cep: string
         -uf: string
         -cidade: string
@@ -18,7 +23,6 @@ classDiagram
         -logradouro: string
         -numero: string
         -complemento: string
-        -id: string
     }
 
     class Motorista {
@@ -41,16 +45,28 @@ classDiagram
         -horario: DateTime
         -veiculo: Veiculo
         -data: DateTime
-        -roteiro: string
-        -passageiros: Passageiro
+        -roteiro: Roteiro
+        -destinoDosPassageiros: DestinoDoPassageiro
+    }
+
+    class DestinoDoPassageiro {
+        -passageiro: Passageiro
         -procedimento: string
         -destino: string
         -horarioDeAtendimento: string
     }
 
-    Viagem o-- Veiculo
-    Viagem o-- Motorista
-    Viagem o-- Passageiro
+    class Roteiro {
+        -saida: string
+        -destino: string
+        -chegada: string
+    } 
+
+    Pessoa *-- Endereco
+    Viagem *-- Veiculo
+    Viagem *-- Motorista
+    Viagem *-- Roteiro
+    Viagem o-- DestinoDoPassageiro
 ```
 
 ## Diagrama Entidade Relacionamento
