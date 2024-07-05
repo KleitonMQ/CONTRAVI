@@ -53,7 +53,7 @@ classDiagram
         -passageiro: Passageiro
         -procedimento: string
         -destino: string
-        -horarioDeAtendimento: string
+        -horarioDeAtendimento: DateTime
     }
 
     class Roteiro {
@@ -73,11 +73,10 @@ classDiagram
 
 ```mermaid
 erDiagram
-    MOTORISTA {
+    PESSOA {
         string id
         string nome
         string telefone
-        string CNH
         string cep
         string uf
         string cidade
@@ -85,42 +84,56 @@ erDiagram
         string logradouro
         string numero
         string complemento
+    }
+
+    MOTORISTA {
+        string id
+        string CNH
     }
 
     PASSAGEIRO {
         string id
-        string nome
-        string telefone
         string CNS
-        string cep
-        string uf
-        string cidade
-        string bairro
-        string logradouro
-        string numero
-        string complemento
     }
 
     VEICULO {
-        string Id
+        string id
         string modelo
         string placa
         int vagas
     }
 
     VIAGEM {
-        string motorista
+        string id
+        string motorista_id
         DateTime horario
-        string veiculo
+        string veiculo_id
         DateTime data
-        string roteiro
-        string passageiros
-        string procedimento
-        string destino
-        string horarioDeAtendimento
+        string roteiro_id
     }
 
+    DESTINODOPASSAGEIRO {
+        string id
+        string viagem_id
+        string passageiro_id
+        string procedimento
+        string destino
+        DateTime horarioDeAtendimento
+    }
+
+    ROTEIRO {
+        string id
+        string saida
+        string destino
+        string chegada
+    }
+
+    PESSOA ||--o{ MOTORISTA : "é"
+    PESSOA ||--o{ PASSAGEIRO : "é"
     VIAGEM ||--o{ VEICULO : "contém"
     VIAGEM ||--o{ MOTORISTA : "contém"
-    VIAGEM ||--o{ PASSAGEIRO : "contém"
+    VIAGEM ||--o{ ROTEIRO : "contém"
+    VIAGEM ||--o{ DESTINODOPASSAGEIRO : "contém"
+    DESTINODOPASSAGEIRO ||--o{ PASSAGEIRO : "é"
+
 ```
