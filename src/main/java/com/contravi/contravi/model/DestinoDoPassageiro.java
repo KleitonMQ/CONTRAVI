@@ -4,25 +4,24 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Document
 public class DestinoDoPassageiro {
 
     @DBRef
-    private List<Passageiro> passageiros;
+    private Passageiro passageiro;
 
     private String procedimento;
     private String destino;
     private LocalDateTime horarioDeAtendimento;
 
 
-    public List<Passageiro> getPassageiros() {
-        return passageiros;
+    public Passageiro getPassageiros() {
+        return passageiro;
     }
 
-    public void setPassageiros(List<Passageiro> passageiros) {
-        this.passageiros = passageiros;
+    public void setPassageiros(Passageiro passageiro) {
+        this.passageiro = passageiro;
     }
     
     public String getProcedimento() {
