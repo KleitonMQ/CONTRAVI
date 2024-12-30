@@ -2,8 +2,8 @@
 
 
 ## Dependências:
-- Spring Security
-- Spring Data Mongo DB
+- 
+- 
 
 [Configuração inicial spring][doc].
 ## Diagrama de classe
