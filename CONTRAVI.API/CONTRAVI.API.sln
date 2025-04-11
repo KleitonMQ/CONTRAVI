@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.API", "CONTRAVI.API\CONTRAVI.API.csproj", "{413EB1EF-A829-4882-A0E9-212B18F65B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.core", "CONTRAVI.core\CONTRAVI.core.csproj", "{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{413EB1EF-A829-4882-A0E9-212B18F65B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{413EB1EF-A829-4882-A0E9-212B18F65B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{413EB1EF-A829-4882-A0E9-212B18F65B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
