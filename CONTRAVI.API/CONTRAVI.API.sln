@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.API", "CONTRAVI.AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.core", "CONTRAVI.core\CONTRAVI.core.csproj", "{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.Infrascruture", "CONTRAVI.Infrascruture\CONTRAVI.Infrascruture.csproj", "{453BA569-7306-4823-81F5-65A46D285C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{453BA569-7306-4823-81F5-65A46D285C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453BA569-7306-4823-81F5-65A46D285C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453BA569-7306-4823-81F5-65A46D285C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453BA569-7306-4823-81F5-65A46D285C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
