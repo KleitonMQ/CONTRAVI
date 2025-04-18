@@ -3,10 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CONTRAVI.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Trip")]
     [ApiController]
     public class TripController : ControllerBase
     {
-
+        [HttpPost]
+        public async Task<IActionResult> CreateTrip()
+        {
+            return Ok();
+        }
     }
 }
