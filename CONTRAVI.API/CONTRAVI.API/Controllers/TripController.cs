@@ -7,10 +7,46 @@ namespace CONTRAVI.API.Controllers
     [ApiController]
     public class TripController : ControllerBase
     {
-        [HttpPost]
+        [HttpPost("PostTrip")]
         public async Task<IActionResult> CreateTrip()
         {
             return Ok();
         }
+        [HttpPut("UpdateTrip")]
+        public async Task<IActionResult> UpdateTrip()
+        {
+            return Ok();
+        }
+        [HttpPut("IncludePassenger")]
+        public async Task<IActionResult> AddPassenger()
+        {
+            return Ok();
+        }
+        [HttpDelete("RemovePassenger")]
+        public async Task<IActionResult> RemovePassenger()
+        {
+            return Ok();
+        }
+        [HttpGet("GetTripByVehicle")]
+        public async Task<IActionResult> GetTripByVehicle()
+        {
+            return Ok();
+        }
+        [HttpGet("GetTripByRoadMap")]
+        public async Task<IActionResult> GetTripByRoadMap()
+        {
+            return Ok();
+        }
+        [HttpGet("GetTripByID")]
+        public async Task<IActionResult> GetTripByID()
+        {
+            return Ok();
+        }
+        [HttpGet("GetTripByDate")]
+        public async Task<IActionResult> GetTripByDate()
+        {
+            return Ok();
+        }
+
     }
 }
