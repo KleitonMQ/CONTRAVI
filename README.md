@@ -2,8 +2,10 @@
 
 
 ## Dependências:
-- 
-- 
+EntityFramewokr
+- instalar global na maquina via cli: dotnet tool install --global dotnet-ef
+- instalar em infrastructure: EntityFrameworkCore.SqlServer e EntityFrameworkCore.Tools
+
 
 [Configuração inicial spring][doc].
 ## Diagrama de classe

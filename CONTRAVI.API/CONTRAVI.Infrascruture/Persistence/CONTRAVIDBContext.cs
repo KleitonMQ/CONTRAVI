@@ -1,22 +1,23 @@
 ﻿using CONTRAVI.core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CONTRAVI.Infrascruture.Persistence
 {
-    public class CONTRAVIDBContext
+    public class CONTRAVIDBContext : DbContext
     {
-        public List<Vehicle> Vehicles { get; set; }
-        public List<Address> Address { get; set; }
-        public List<Admin> Admins { get; set; }
-        public List<Driver> Drivers { get; set; }
-        public List<Passenger> Passes { get; set; }
-        public List<PassengerDestination> PassesDestination { get; set; }
-        public List<RoadMap> Roads { get; set; }
-        public List<Trip> Trip { get; set; }
+        public CONTRAVIDBContext(DbContextOptions<CONTRAVIDBContext> options) : base(options)
+        {
+
+        }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Driver> Drivers { get; set; }
+        public DbSet<Passenger> Passes { get; set; }
+        public DbSet<PassengerDestination> PassesDestination { get; set; }
+        public DbSet<RoadMap> Roads { get; set; }
+        public DbSet<Trip> Trip { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         public CONTRAVIDBContext()
         {
