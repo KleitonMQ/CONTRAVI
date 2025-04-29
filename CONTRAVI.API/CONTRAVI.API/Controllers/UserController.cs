@@ -34,11 +34,45 @@ namespace CONTRAVI.API.Controllers
             //Incluir metodo
             return Ok();
         }
-        [HttpPut("UpdateUser")]
-        public async Task<IActionResult> UpdateUser()
+        [HttpPut("UpdateAdmin")]
+        public async Task<IActionResult> UpdateAdmin()
         {
             //incluir metodo
             return Ok();
         }
+
+        [HttpPut("UpdatePassenger")]
+        public async Task<IActionResult> UpdatePassenger()
+        {
+            //incluir metodo
+            return Ok();
+        }
+        [HttpPut("UpdateDriver")]
+        public async Task<IActionResult> UpdateDriver()
+        {
+            //incluir metodo
+            return Ok();
+        }
+        [HttpGet("GetPassengerByCNS")]
+        public async Task<IActionResult> GetPassengerByCNH()
+        {
+            return Ok();
+        }
+        [HttpGet("GetPassengerByName")]
+        public async Task<IActionResult> GetPassengerByName()
+        {
+            return Ok();
+        }
+        [HttpGet("GetDriverByCNH")]
+        public async Task<IActionResult> GetDriverByCNH()
+        {
+            return Ok();
+        }
+        [HttpGet("GetDriverByName")]
+        public async Task<IActionResult> GetDriverByName()
+        {
+            return Ok();
+        }
+
     }
 }
