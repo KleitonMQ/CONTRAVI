@@ -7,7 +7,7 @@ namespace CONTRAVI.API.Controllers
     [ApiController]
     public class TripController : ControllerBase
     {
-        [HttpPost]
+        [HttpPost("CreateTrip")]
         public async Task<IActionResult> CreateTrip()
         {
             return Ok();
