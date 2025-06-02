@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CONTRAVI.Infrascruture.Persistence.Configurations
 {
-    internal class TripConfigutarion : IEntityTypeConfiguration<Trip>
+    public class TripConfiguration : IEntityTypeConfiguration<Trip>
     {
         public void Configure(EntityTypeBuilder<Trip> builder)
         {

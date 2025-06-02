@@ -11,10 +11,8 @@ namespace CONTRAVI.core.Entities
         public Passenger(string userName, string phoneNumber, string email, Address adress, string cns) : base(userName, phoneNumber, email, adress)
         {
             CNS = cns;
-            TripList = new List<Trip>();
         }
 
         public string CNS { get; private set; }
-        public List<Trip> TripList { get; private set; }
     }
 }
