@@ -15,7 +15,7 @@ namespace CONTRAVI.core.Entities
             VehicleId = vehicleId;
             RoadMapId = roadMapId;
             TripDate = tripDate;
-            DestinationList = new List<PassengerDestination>();
+            PassengerDestination = new List<PassengerDestination>();
         }
         public int DriverId { get; set; }
         public Driver Driver { get; private set; }
@@ -25,7 +25,7 @@ namespace CONTRAVI.core.Entities
 
         public int RoadMapId { get; set; }
         public RoadMap RoadMap { get; private set; }
-        public List<PassengerDestination> DestinationList { get; private set; }
+        public List<PassengerDestination> PassengerDestination { get; private set; }
         public DateTime DepartureTime { get; private set; }
         public DateTime TripDate { get; private set; }
 

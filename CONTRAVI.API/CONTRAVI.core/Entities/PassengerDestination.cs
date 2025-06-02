@@ -17,7 +17,8 @@ namespace CONTRAVI.core.Entities
             ScheduledTime = scheduledTime;
         }
 
-        public int PassengerId { get; set; }
+        public int TripId { get; private set; }
+        public int PassengerId { get; private set; }
         public Passenger Passenger { get; private set; }
         public string Procedure {  get; private set; }
         public string Destination { get; private set; }
