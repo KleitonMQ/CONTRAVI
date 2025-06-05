@@ -9,9 +9,27 @@ namespace CONTRAVI.API.Controllers
     public class UserController : ControllerBase
     {
         [HttpPost("Passenger")]
-        public async Task<IActionResult> PostPassenger()
+        public async Task<IActionResult> AddPassenger()
         {
             //Incluir metodo
+            return Ok();
+        }
+
+        [HttpPut("UpdatePassenger")]
+        public async Task<IActionResult> UpdatePassenger()
+        {
+            //incluir metodo
+            return Ok();
+        }
+
+        [HttpGet("GetPassengerByCNS")]
+        public async Task<IActionResult> GetPassengerByCNH()
+        {
+            return Ok();
+        }
+        [HttpGet("GetPassengerByName")]
+        public async Task<IActionResult> GetPassengerByName()
+        {
             return Ok();
         }
 
@@ -41,26 +59,10 @@ namespace CONTRAVI.API.Controllers
             return Ok();
         }
 
-        [HttpPut("UpdatePassenger")]
-        public async Task<IActionResult> UpdatePassenger()
-        {
-            //incluir metodo
-            return Ok();
-        }
         [HttpPut("UpdateDriver")]
         public async Task<IActionResult> UpdateDriver()
         {
             //incluir metodo
-            return Ok();
-        }
-        [HttpGet("GetPassengerByCNS")]
-        public async Task<IActionResult> GetPassengerByCNH()
-        {
-            return Ok();
-        }
-        [HttpGet("GetPassengerByName")]
-        public async Task<IActionResult> GetPassengerByName()
-        {
             return Ok();
         }
         [HttpGet("GetDriverByCNH")]

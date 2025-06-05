@@ -4,12 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CONTRAVI.API", "CONTRAVI.API\CONTRAVI.API.csproj", "{413EB1EF-A829-4882-A0E9-212B18F65B0C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D61D1138-FA8A-43DD-A8C6-A790542FE60B} = {D61D1138-FA8A-43DD-A8C6-A790542FE60B}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CONTRAVI.core", "CONTRAVI.core\CONTRAVI.core.csproj", "{C5FEF337-1D04-4B8D-908A-02B3DD98DC98}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CONTRAVI.Infrascruture", "CONTRAVI.Infrascruture\CONTRAVI.Infrascruture.csproj", "{453BA569-7306-4823-81F5-65A46D285C6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CONTRAVI.Application", "CONTRAVI.Application\CONTRAVI.Application.csproj", "{D61D1138-FA8A-43DD-A8C6-A790542FE60B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5FEF337-1D04-4B8D-908A-02B3DD98DC98} = {C5FEF337-1D04-4B8D-908A-02B3DD98DC98}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
