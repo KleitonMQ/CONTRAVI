@@ -29,7 +29,6 @@ namespace CONTRAVI.Infrascruture.Persistence.Configurations
                 .WithOne()
                 .HasForeignKey(k => k.TripId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }
