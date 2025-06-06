@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CONTRAVI.Infrascruture.Persistence.Configurations
 {
-    internal class PassengerDestinationConfiguration : IEntityTypeConfiguration<PassengerDestination>
+    public class PassengerDestinationConfiguration : IEntityTypeConfiguration<PassengerDestination>
     {
         public void Configure(EntityTypeBuilder<PassengerDestination> builder)
         {

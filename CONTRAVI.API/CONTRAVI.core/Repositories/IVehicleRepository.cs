@@ -2,7 +2,7 @@
 
 namespace CONTRAVI.core.Repositories
 {
-    public interface IVeihicleRepository
+    public interface IVehicleRepository
     {
         Task AddVehicleAsync(Vehicle passenger);
         Task UpdateVehicleAsync(Vehicle passenger);
