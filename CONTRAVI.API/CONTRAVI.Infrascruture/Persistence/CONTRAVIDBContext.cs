@@ -19,5 +19,9 @@ namespace CONTRAVI.Infrascruture.Persistence
         public DbSet<Trip> Trip { get; set; }
         public DbSet<Vehicle> Vehicle { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CONTRAVIDBContext).Assembly);
+        }
     }
 }

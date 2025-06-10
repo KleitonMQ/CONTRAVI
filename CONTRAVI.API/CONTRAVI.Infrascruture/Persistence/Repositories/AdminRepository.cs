@@ -1,0 +1,49 @@
+﻿using CONTRAVI.core.Entities;
+using CONTRAVI.core.Repositories;
+using Microsoft.EntityFrameworkCore;
+
+namespace CONTRAVI.Infrascruture.Persistence.Repositories
+{
+    public class AdminRepository : IAdminRepository
+    {
+        private readonly CONTRAVIDBContext _DBContext;
+
+        public AdminRepository(CONTRAVIDBContext DBContext)
+        {
+            _DBContext = DBContext;
+        }
+        public async Task<String> AddAdminAsync(Admin admin)
+        {
+            _DBContext.Admin.AddAsync(admin);
+            _DBContext.SaveChanges();
+            return admin.UserName;
+        }
+
+        public async Task<Admin> GetAdminByLoginAndPasswordAsync(string login, string password)
+        {
+            return await _DBContext.Admin.SingleOrDefaultAsync(u => u.Login == login && u.Password == password);
+        }
+
+        public async Task<List<Admin>> GetAdminByNameAsync(string name)
+        {
+            return await _DBContext.Admin
+                         .Where(a => a.UserName.ToLower() == name.ToLower())
+                         .ToListAsync();
+        }
+
+        public async Task<string> UpdateAdminAsync(Admin admin)
+        {
+            var existingAdmin = await _DBContext.Admin.FindAsync(admin.Id);
+            if (existingAdmin == null)
+            {
+                return "Admin não encontrado.";
+            }
+
+            var user = existingAdmin.Update(admin.UserName, admin.PhoneNumber, admin.Email, admin.Login, admin.Password, admin.Adress);
+            
+            await _DBContext.SaveChangesAsync();
+            return $"{user} atualizado com sucesso!";
+        }
+
+    }
+}

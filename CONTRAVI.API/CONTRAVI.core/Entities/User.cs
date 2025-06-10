@@ -10,9 +10,9 @@
             Adress = adress;
         }
 
-        public string UserName { get; private set; }
-        public string PhoneNumber { get; private set; }
-        public string Email { get; private set; }
-        public Address Adress { get; private set; }
+        public string UserName { get; protected set; }
+        public string PhoneNumber { get; protected set; }
+        public string Email { get; protected set; }
+        public Address Adress { get; protected set; }
     }
 }

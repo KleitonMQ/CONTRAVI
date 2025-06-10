@@ -10,5 +10,17 @@
 
         public string Login { get; private set; }
         public string Password { get; private set; }
+
+        public String Update(string userName, string phoneNumber, string email, string login, string password, Address adress)
+        {
+            UserName = userName;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            Login = login;
+            Password = password;
+            Adress = adress;
+
+            return this.UserName;
+        }
     }
 }
