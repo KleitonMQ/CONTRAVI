@@ -4,9 +4,9 @@ namespace CONTRAVI.core.Repositories
 {
     public interface IDriverRepository
     {
-        Task AddDriverAsync(Driver driver);
-        Task UpdateDriverAsync(Driver driver);
-        Task<Driver> GetDriverByNameAsync(string name);
+        Task<String> AddDriverAsync(Driver driver);
+        Task<String> UpdateDriverAsync(Driver driver);
+        Task<List<Driver>> GetDriverByNameAsync(string name);
         Task<Driver> GetDriverByCNHAsync(string cNH);
     }
 }

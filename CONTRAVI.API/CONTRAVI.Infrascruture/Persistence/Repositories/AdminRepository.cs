@@ -39,10 +39,10 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
                 return "Admin não encontrado.";
             }
 
-            var user = existingAdmin.Update(admin.UserName, admin.PhoneNumber, admin.Email, admin.Login, admin.Password, admin.Adress);
+            existingAdmin.Update(admin.UserName, admin.PhoneNumber, admin.Email, admin.Login, admin.Password, admin.Adress);
             
             await _DBContext.SaveChangesAsync();
-            return $"{user} atualizado com sucesso!";
+            return $"{admin.UserName} atualizado com sucesso!";
         }
 
     }
