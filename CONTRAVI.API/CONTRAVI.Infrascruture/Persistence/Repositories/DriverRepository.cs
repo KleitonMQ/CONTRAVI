@@ -19,8 +19,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<String> AddDriverAsync(Driver driver)
         {
-            _dbContext.AddAsync(driver);
-            _dbContext.SaveChanges();
+            await _dbContext.AddAsync(driver);
+            await _dbContext.SaveChangesAsync();
             return driver.UserName;
         }
 

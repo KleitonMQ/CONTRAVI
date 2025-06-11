@@ -8,7 +8,7 @@
         }
 
         public string CNS { get; private set; }
-        public void Update(string userName, string phoneNumber, string email, string cNS, string password, Address adress)
+        public void Update(string userName, string phoneNumber, string email, string cNS, Address adress)
         {
             UserName = userName;
             PhoneNumber = phoneNumber;

@@ -14,8 +14,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
         }
         public async Task<String> AddAdminAsync(Admin admin)
         {
-            _DBContext.Admin.AddAsync(admin);
-            _DBContext.SaveChanges();
+            await _DBContext.Admin.AddAsync(admin);
+            await _DBContext.SaveChangesAsync();
             return admin.UserName;
         }
 
