@@ -1,4 +1,6 @@
+using CONTRAVI.core.Repositories;
 using CONTRAVI.Infrascruture.Persistence;
+using CONTRAVI.Infrascruture.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,9 @@ if (string.IsNullOrEmpty(connectionString))
 }
 
 builder.Services.AddDbContext<CONTRAVIDBContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CONTRAVI.Infrastructure")));
+
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IDriverRepository, DriverRepository>();
 
 var app = builder.Build();
 
