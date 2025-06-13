@@ -1,4 +1,95 @@
-[doc]: https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.1&packaging=jar&jvmVersion=17&groupId=com.contravi&artifactId=contravi&name=contravi&description=Gerenciar%20viagens%2C%20roteiros%20e%20passageiros.&packageName=com.contravi.contravi&dependencies=security,data-mongodb
+
+# ✅ Checklist Testável - API .NET com CQRS, Clean Architecture, EF Core, MediatR, JWT
+
+---
+
+## 🔹 Etapa 1: Criar Solução e Estrutura Base
+
+- [x] Criar solution: dotnet new sln -n MyProject
+- [x] Criar projetos:
+  - [x] MyProject.API (Web API)
+  - [x] MyProject.Core (Domínio e Interfaces)
+  - [x] MyProject.Application (CQRS, DTOs, Validadores)
+  - [x] MyProject.Infrastructure (EF Core, Repositórios, JWT)
+- [x] Adicionar projetos à solution: dotnet sln add ...
+- [x] Configurar referências:
+  - [x] API → Application, Infrastructure
+  - [x] Application → Core
+  - [x] Infrastructure → Core
+
+---
+
+## 🔹 Etapa 2: Criar Entidades e Contratos (Core)
+
+- [x] Criar entidade User em Core/Entities/User.cs
+- [x] Criar pasta Repositories e interface IUserRepository.cs
+
+---
+
+## 🔹 Etapa 3: Criar DbContext e Repositório (Infrastructure)
+
+- [x] Criar AppDbContext com DbSet<User>
+- [x] Registrar DbContext no DI (Program.cs)
+- [x] Criar pasta Configurations para arquivos de mapeamento DB
+- [x] Criar classes Configuration.cs para mapear chaves das entities necessarias.
+- [x] Criar classes Repository implementando IRepository's
+- [] Registrar Repository's no DI
+- [] Criar e aplicar migrations:
+
+
+---
+
+## 🔹 Etapa 4: Aplicar MediatR e CQRS (Application)
+
+- [ ] Instalar pacote MediatR
+- [ ] Criar pasta Users/Commands com:
+  - [ ] CreateUserCommand
+  - [ ] CreateUserHandler
+- [ ] Criar pasta Users/Queries com:
+  - [ ] GetAllUsersQuery
+  - [ ] GetAllUsersHandler
+- [ ] Criar pasta DTOs com UserDto
+- [ ] Registrar MediatR no Program.cs
+
+---
+
+## 🔹 Etapa 5: Configurar API
+
+- [ ] Criar UsersController com endpoints de GET e POST
+- [ ] Injetar IMediator e usar Send(command/query)
+- [ ] Rodar projeto e testar com Swagger/Postman
+
+---
+
+## 🔹 Etapa 6: FluentValidation
+
+- [ ] Instalar FluentValidation.AspNetCore
+- [ ] Criar CreateUserValidator
+- [ ] Registrar validações no Program.cs
+
+---
+
+## 🔹 Etapa 7: Autenticação e Autorização com JWT
+
+- [ ] Instalar pacotes Microsoft.AspNetCore.Authentication.JwtBearer
+- [ ] Criar AuthController para login
+- [ ] Criar classe JwtService para geração de tokens
+- [ ] Configurar autenticação no Program.cs
+- [ ] Proteger rotas com [Authorize]
+
+---
+
+## 🔹 Etapa 8: Melhorias e Extras
+
+- [ ] Criar camada de logs
+- [ ] Criar testes unitários (ex: Handlers, Validations)
+- [ ] Configurar versionamento de API
+- [ ] Configurar Docker (opcional)
+- [ ] Publicar em ambiente (Azure, Render, etc.)
+
+---
+
+
 
 
 ## Dependências:

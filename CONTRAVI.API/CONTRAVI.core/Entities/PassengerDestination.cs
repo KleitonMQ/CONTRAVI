@@ -17,5 +17,13 @@
         public string Procedure {  get; private set; }
         public string Destination { get; private set; }
         public DateTime ScheduledTime { get; private set; }
+
+
+        public void Update(string procedure, string destination, DateTime scheuledTime)
+        {
+            this.Procedure = procedure;
+            this.Destination = destination;
+            this.ScheduledTime = scheuledTime;
+        }
     }
 }
