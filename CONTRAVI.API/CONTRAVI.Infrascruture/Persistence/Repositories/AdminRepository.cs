@@ -33,7 +33,7 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<string> UpdateAdminAsync(Admin admin)
         {
-            var existingAdmin = await _DBContext.Admin.FindAsync(admin.Id);
+            var existingAdmin = await _DBContext.Admin.SingleOrDefaultAsync(u => u.Login == admin.Login);
             if (existingAdmin == null)
             {
                 return "Admin não encontrado.";

@@ -15,10 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Validators\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CONTRAVI.core\CONTRAVI.core.csproj" />
   </ItemGroup>
 
 </Project>
