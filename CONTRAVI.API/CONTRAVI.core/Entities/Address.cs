@@ -13,6 +13,8 @@
             AddressComplement = addressComplement;
         }
 
+        public Address() { }
+
         public string UF { get; private set; }
         public string CEP {  get; private set; }
         public string City { get; private set; }

@@ -10,6 +10,7 @@ namespace CONTRAVI.Infrascruture.Persistence
         {
 
         }
+        public CONTRAVIDBContext() { }
         public DbSet<Address> Address { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Driver> Driver { get; set; }

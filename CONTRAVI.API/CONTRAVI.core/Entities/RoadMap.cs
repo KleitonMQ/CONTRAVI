@@ -8,6 +8,11 @@
             Destination = destination;
             Arrival = arrival;
         }
+
+        public RoadMap()
+        {
+            
+        }
         public string Departure {  get; private set; }
         public string Destination { get; private set; }
         public string Arrival { get; private set; }

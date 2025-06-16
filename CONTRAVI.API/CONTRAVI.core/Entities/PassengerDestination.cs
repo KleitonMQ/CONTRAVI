@@ -11,6 +11,11 @@
             ScheduledTime = scheduledTime;
         }
 
+        public PassengerDestination()
+        {
+            
+        }
+
         public int TripId { get; private set; }
         public int PassengerId { get; private set; }
         public Passenger Passenger { get; private set; }

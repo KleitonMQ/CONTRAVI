@@ -13,14 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+var connectionString = builder.Configuration.GetConnectionString("CONTRAVIDBCs");
 
 if (string.IsNullOrEmpty(connectionString))
 {
     throw new InvalidOperationException("A string de conexão não foi encontrada.");
 }
 
-builder.Services.AddDbContext<CONTRAVIDBContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CONTRAVI.Infrastructure")));
+builder.Services.AddDbContext<CONTRAVIDBContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CONTRAVI.Infrascruture")));
 
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();

@@ -11,6 +11,11 @@
             TripDate = tripDate;
             PassengerDestination = new List<PassengerDestination>();
         }
+
+        public Trip()
+        {
+            
+        }
         public int DriverId { get; set; }
         public Driver Driver { get; private set; }
 

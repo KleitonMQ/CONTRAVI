@@ -9,6 +9,11 @@
             LicensePlate = licensePlate;
             Vacancies = vacancies;
         }
+
+        public Vehicle()
+        {
+            
+        }
         public int VehicleId { get; private set; }
         public string Model { get; private set; }
         public string LicensePlate { get; private set; }

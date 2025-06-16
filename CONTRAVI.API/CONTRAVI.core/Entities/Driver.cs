@@ -8,6 +8,8 @@
             Password = password;
         }
 
+        public Driver() { }
+
         public string CNH { get; private set; }
         public string Password { get; private set; }
 

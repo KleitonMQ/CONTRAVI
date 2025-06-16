@@ -8,10 +8,12 @@ namespace CONTRAVI.Infrascruture.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.HasKey(u => u.Id);
+
             builder.HasOne(u => u.Adress)
-                .WithOne()
-                .HasForeignKey<User>(u => u.Id)
-                .OnDelete(DeleteBehavior.Cascade);
+            .WithMany()
+            .HasForeignKey(u => u.AddressId)
+            .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
