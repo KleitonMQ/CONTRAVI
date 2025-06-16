@@ -65,7 +65,8 @@ namespace CONTRAVI.Infrascruture.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -81,8 +82,8 @@ namespace CONTRAVI.Infrascruture.Migrations
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_User_Address_Id",
-                        column: x => x.Id,
+                        name: "FK_User_Address_AddressId",
+                        column: x => x.AddressId,
                         principalTable: "Address",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -176,6 +177,11 @@ namespace CONTRAVI.Infrascruture.Migrations
                 name: "IX_Trip_VehicleId",
                 table: "Trip",
                 column: "VehicleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_User_AddressId",
+                table: "User",
+                column: "AddressId");
         }
 
         /// <inheritdoc />

@@ -17,7 +17,7 @@ namespace CONTRAVI.Infrascruture.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -159,7 +159,10 @@ namespace CONTRAVI.Infrascruture.Migrations
             modelBuilder.Entity("CONTRAVI.core.Entities.User", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AddressId")
                         .HasColumnType("int");
@@ -182,6 +185,8 @@ namespace CONTRAVI.Infrascruture.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
 
                     b.ToTable("User");
 
@@ -311,8 +316,8 @@ namespace CONTRAVI.Infrascruture.Migrations
             modelBuilder.Entity("CONTRAVI.core.Entities.User", b =>
                 {
                     b.HasOne("CONTRAVI.core.Entities.Address", "Adress")
-                        .WithOne()
-                        .HasForeignKey("CONTRAVI.core.Entities.User", "Id")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
