@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CONTRAVI.Application.Commands.CreateAdmin
 {
-    public class CreateAdminComand : IRequest<string>
+    public class CreateAdminCommand : IRequest<string>
     {
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }

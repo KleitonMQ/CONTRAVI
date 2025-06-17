@@ -4,14 +4,14 @@ using MediatR;
 
 namespace CONTRAVI.Application.Commands.CreateAdmin
 {
-    public class CreateAdmincomandHandler : IRequestHandler<CreateAdminComand, string>
+    public class CreateAdmincommandHandler : IRequestHandler<CreateAdminCommand, string>
     {
         private readonly IAdminRepository _adminRepository;
-        public CreateAdmincomandHandler(IAdminRepository repository)
+        public CreateAdmincommandHandler(IAdminRepository repository)
         {
             _adminRepository = repository;
         }
-        public async Task<string> Handle(CreateAdminComand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(CreateAdminCommand request, CancellationToken cancellationToken)
         {
             var admin = new Admin(request.UserName, request.PhoneNumber, request.email, request.Address, request.Password, request.Login);
 

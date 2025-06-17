@@ -22,6 +22,7 @@
 ## 🔹 Etapa 2: Criar Entidades e Contratos (Core)
 
 - [x] Criar entidade User em Core/Entities/User.cs
+- [x] Criar construtores vazios em todas as entidades para não bugar o EF.
 - [x] Criar pasta Repositories e interface IUserRepository.cs
 
 ---
@@ -30,11 +31,13 @@
 
 - [x] Criar AppDbContext com DbSet<User>
 - [x] Registrar DbContext no DI (Program.cs)
+- [x] Instalar pacote nugget Microsoft.Extensions.Configuration.Json
+- [x] Criar ContextFactory para evitar problemas com caminho de configurações.
 - [x] Criar pasta Configurations para arquivos de mapeamento DB
 - [x] Criar classes Configuration.cs para mapear chaves das entities necessarias.
 - [x] Criar classes Repository implementando IRepository's
-- [] Registrar Repository's no DI
-- [] Criar e aplicar migrations:
+- [x] Registrar Repository's no DI
+- [x] Criar e aplicar migrations:
 
 
 ---
