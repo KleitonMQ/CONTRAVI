@@ -1,9 +1,9 @@
 ﻿
 namespace CONTRAVI.Application.ViewModels
 {
-    public class GetAdminByLoginViewModel
+    public class GetDriverByLoginViewModel
     {
-        public GetAdminByLoginViewModel(string userName, string login, string token)
+        public GetDriverByLoginViewModel(string userName, string login, string token)
         {
             UserName = userName;
             Login = login;

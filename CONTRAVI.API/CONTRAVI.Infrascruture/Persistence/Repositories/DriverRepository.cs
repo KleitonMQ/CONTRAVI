@@ -1,11 +1,6 @@
 ﻿using CONTRAVI.core.Entities;
 using CONTRAVI.core.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CONTRAVI.Infrascruture.Persistence.Repositories
 {
@@ -29,6 +24,11 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             return await _dbContext.Driver.SingleOrDefaultAsync(d => d.CNH == cNH);
         }
 
+        public Task<Driver> GetDriverByLoginAsync(string login, string password)
+        {
+            return _dbContext.Driver.SingleOrDefaultAsync(d => d.Login == login && d.Password == password);
+        }
+
         public async Task<List<Driver>> GetDriverByNameAsync(string name)
         {
             return await _dbContext.Driver.Where(d => d.UserName.ToLower() == name.ToLower()).ToListAsync();
@@ -42,7 +42,7 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
                 return "Motorista não encontrado.";
             }
 
-            existingDriver.Update(driver.UserName, driver.PhoneNumber, driver.Email, driver.CNH, driver.Password, driver.Adress);
+            existingDriver.Update(driver.UserName, driver.PhoneNumber, driver.Email, driver.CNH, driver.Password, driver.Adress, driver.Login);
 
             await _dbContext.SaveChangesAsync();
             return $"{driver.UserName} atualizado com sucesso!";

@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\GetAdminByLogin\" />
     <Folder Include="Validators\" />
   </ItemGroup>
 
