@@ -2,12 +2,12 @@
 {
     public class Trip : BaseEntity
     {
-        public Trip(int driverId, Driver driver, int vehicleId, Vehicle vehicle, int roadMapId, RoadMap roadMap, DateTime departureTime, DateTime tripDate) 
+        public Trip(int driverId, int vehicleId, int roadMapId, DateTime departureTime, DateTime tripDate)
         {
             DriverId = driverId;
-            Driver = driver;
             VehicleId = vehicleId;
             RoadMapId = roadMapId;
+            DepartureTime = departureTime;
             TripDate = tripDate;
             PassengerDestination = new List<PassengerDestination>();
         }

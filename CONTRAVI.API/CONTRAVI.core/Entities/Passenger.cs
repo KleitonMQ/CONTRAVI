@@ -12,6 +12,9 @@
         }
 
         public string CNS { get; private set; }
+        public ICollection<PassengerDestination> Destinations { get; private set; }
+
+
         public void Update(string userName, string phoneNumber, string email, string cNS, Address adress)
         {
             UserName = userName;

@@ -2,10 +2,9 @@
 {
     public class PassengerDestination : BaseEntity
     {
-        public PassengerDestination(int passengerId, Passenger passenger, string procedure, string destination, DateTime scheduledTime)
+        public PassengerDestination(int passengerId, string procedure, string destination, DateTime scheduledTime)
         {
             PassengerId = passengerId;
-            Passenger = passenger;
             Procedure = procedure;
             Destination = destination;
             ScheduledTime = scheduledTime;
