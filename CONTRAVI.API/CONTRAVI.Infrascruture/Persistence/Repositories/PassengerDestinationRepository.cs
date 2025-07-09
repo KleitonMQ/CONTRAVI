@@ -24,11 +24,6 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             var passengerDestination = await _dbContext.PassengerDestination.FindAsync(id);
             if (passengerDestination == null)
             {
-                return false; // Indica que o registro não foi encontrado
-            }
-
-            if (passengerDestination == null)
-            {
                 return false; 
             }
 
