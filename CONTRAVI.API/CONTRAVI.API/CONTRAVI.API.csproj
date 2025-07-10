@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CONTRAVI.Application\CONTRAVI.Application.csproj" />
     <ProjectReference Include="..\CONTRAVI.Infrascruture\CONTRAVI.Infrascruture.csproj" />
   </ItemGroup>
 

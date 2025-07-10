@@ -15,7 +15,10 @@ namespace CONTRAVI.Application.Commands.Tripcommands.UpdateTrip
 
         public async Task<bool> Handle(UpdateTripCommand request, CancellationToken cancellationToken)
         {
-            var trip = new Trip(
+            var trip = await _tripRepository.GetTripByIdAsync(request.Id);
+            if (trip == null) return false;
+
+            trip.UpdateTrip(
                 request.DriverId,
                 request.VehicleId,
                 request.RoadMapId,
@@ -23,12 +26,10 @@ namespace CONTRAVI.Application.Commands.Tripcommands.UpdateTrip
                 request.TripDate
             );
 
-            typeof(Trip).GetProperty("Id")?.SetValue(trip, request.Id); // Garantindo que o ID seja mantido
-
             await _tripRepository.UpdateTripAsync(trip);
-
             return true;
         }
+
     }
 
 }
