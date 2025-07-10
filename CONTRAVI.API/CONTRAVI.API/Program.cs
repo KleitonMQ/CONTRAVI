@@ -31,6 +31,7 @@ builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
 builder.Services.AddScoped<IPassengerDestinationRepository, PassengerDestinationRepository>();
 builder.Services.AddScoped<IRoadMapRepository, RoadMapRepository>();
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<ITripRepository, TripRepository>();
 
 var app = builder.Build();
 
