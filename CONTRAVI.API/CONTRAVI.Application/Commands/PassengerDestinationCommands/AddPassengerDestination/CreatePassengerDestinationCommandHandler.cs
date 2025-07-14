@@ -3,7 +3,7 @@ using CONTRAVI.core.Repositories;
 using MediatR;
 
 
-namespace CONTRAVI.Application.Commands.PassengerCommands.AddPassengerDestination
+namespace CONTRAVI.Application.Commands.PassengerDestinationCommands.AddPassengerDestination
 {
     public class CreatePassengerDestinationCommandHandler : IRequestHandler<CreatePassengerDestinationCommand, string>
     {

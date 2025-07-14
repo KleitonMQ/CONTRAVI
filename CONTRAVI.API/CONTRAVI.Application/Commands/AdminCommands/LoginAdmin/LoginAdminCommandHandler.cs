@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CONTRAVI.Application.Commands.AdminCommands.LoginAdmin
 {
-    internal class LoginAdminCommandHandler : IRequestHandler<LoginAdminCommand, GetAdminByLoginViewModel>
+    public class LoginAdminCommandHandler : IRequestHandler<LoginAdminCommand, GetAdminByLoginViewModel>
     {
         private readonly IAdminRepository _adminRepository;
         public LoginAdminCommandHandler(IAdminRepository adminRepository)

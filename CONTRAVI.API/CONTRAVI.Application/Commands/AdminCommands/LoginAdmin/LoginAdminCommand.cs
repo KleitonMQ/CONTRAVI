@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CONTRAVI.Application.Commands.AdminCommands.LoginAdmin
 {
-    internal class LoginAdminCommand : IRequest<GetAdminByLoginViewModel>
+    public class LoginAdminCommand : IRequest<GetAdminByLoginViewModel>
     {
         public LoginAdminCommand(string login, string password)
         {

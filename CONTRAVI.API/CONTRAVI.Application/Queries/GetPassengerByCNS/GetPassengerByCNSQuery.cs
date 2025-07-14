@@ -7,6 +7,6 @@ namespace CONTRAVI.Application.Queries.GetPassengerByCNS
     public class GetPassengerByCNSQuery : IRequest<GetPassengerViewModel>
     {
         public string CNS;
-        GetPassengerByCNSQuery(string cNS) => CNS = cNS;
+        public GetPassengerByCNSQuery(string cNS) => CNS = cNS;
     }
 }

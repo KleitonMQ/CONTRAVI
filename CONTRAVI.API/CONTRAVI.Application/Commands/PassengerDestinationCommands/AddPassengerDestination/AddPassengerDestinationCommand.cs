@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CONTRAVI.Application.Commands.PassengerCommands.AddPassengerDestination
+namespace CONTRAVI.Application.Commands.PassengerDestinationCommands.AddPassengerDestination
 {
     public class CreatePassengerDestinationCommand : IRequest<string>
     {
