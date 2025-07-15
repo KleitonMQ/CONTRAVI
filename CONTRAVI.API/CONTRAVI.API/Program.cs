@@ -1,9 +1,9 @@
+using CONTRAVI.Application.Commands.VehicleCommands.AddVehicle;
 using CONTRAVI.core.Repositories;
 using CONTRAVI.Infrascruture.Persistence;
 using CONTRAVI.Infrascruture.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +23,12 @@ if (string.IsNullOrEmpty(connectionString))
 
 builder.Services.AddDbContext<CONTRAVIDBContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CONTRAVI.Infrascruture")));
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssemblies(typeof(AddVehicleCommand).Assembly);
+});
 
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();

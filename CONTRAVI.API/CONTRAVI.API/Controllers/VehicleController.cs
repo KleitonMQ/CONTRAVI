@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using CONTRAVI.Application.Commands.VehicleCommands.AddVehicle;
+using CONTRAVI.Application.Commands.VehicleCommands.UpdateVehicle;
+using CONTRAVI.Application.Queries.GetVehicleById;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CONTRAVI.API.Controllers
@@ -8,20 +10,30 @@ namespace CONTRAVI.API.Controllers
     [ApiController]
     public class VehicleController : ControllerBase
     {
-        [HttpPost("InsertVehicle")]
-        public async Task<IActionResult> AddVehicle()
+        private readonly IMediator _mediator;
+
+        public VehicleController(IMediator mediator)
         {
+            _mediator = mediator;
+        }
+
+        [HttpPost("InsertVehicle")]
+        public async Task<IActionResult> AddVehicle([FromBody]AddVehicleCommand command)
+        {
+            var result = await _mediator.Send(command);
             return Ok();
         }
         [HttpPut("Updatevehicle")]
-        public async Task<IActionResult> UpdateVehicle()
+        public async Task<IActionResult> UpdateVehicle([FromBody]UpdateVehicleCommand command)
         {
+            var result = await _mediator.Send(command);
             return Ok();
         }
         [HttpGet("GetVehicleByID")]
-        public async Task<IActionResult> GetById()
+        public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            var vehicle = await _mediator.Send(new GetVehicleByIdQuery(id));
+            return Ok(vehicle);
         }
     }
 }

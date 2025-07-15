@@ -1,14 +1,22 @@
 ﻿
 using CONTRAVI.core.Entities;
+using CONTRAVI.core.Repositories;
 using MediatR;
 
 namespace CONTRAVI.Application.Queries.GetVehicleById
 {
-    internal class GetVehicleByIdQueryHandler : IRequestHandler<GetVehicleByIdQuery, Vehicle>
+    public class GetVehicleByIdQueryHandler : IRequestHandler<GetVehicleByIdQuery, Vehicle>
     {
-        public Task<Vehicle> Handle(GetVehicleByIdQuery request, CancellationToken cancellationToken)
+        private readonly IVehicleRepository _vehicleRepository;
+
+        public GetVehicleByIdQueryHandler(IVehicleRepository vehicleRepository)
         {
-            throw new NotImplementedException();
+            _vehicleRepository = vehicleRepository;
+        }
+        public async Task<Vehicle> Handle(GetVehicleByIdQuery request, CancellationToken cancellationToken)
+        {
+            var vehicle = await _vehicleRepository.GetVehicleByIdAsync(request.Id);
+            return vehicle;
         }
     }
 }

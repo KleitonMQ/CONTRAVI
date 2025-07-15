@@ -9,7 +9,7 @@ namespace CONTRAVI.Application.Queries.GetPassengerByCNS
     {
         private readonly IPassengerRepository _passengerRepository;
 
-        GetPassengerByCNSQueryHandler(IPassengerRepository passengerRepository)
+        public GetPassengerByCNSQueryHandler(IPassengerRepository passengerRepository)
         {
             _passengerRepository = passengerRepository;
         }
