@@ -28,8 +28,11 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task UpdateVehicleAsync(Vehicle vehicle)
         {
-            var existingVehicle = await _dbContext.Vehicle.FindAsync(vehicle.Id);
-            if (existingVehicle != null) { return; }
+            var existingVehicle = await _dbContext.Vehicle.FindAsync(vehicle.VehicleId);
+            if (existingVehicle == null) { return; }
+            existingVehicle.Update(vehicle.VehicleId, vehicle.Model, vehicle.LicensePlate, vehicle.Vacancies);
+            _dbContext.Vehicle.Update(existingVehicle);
+            await _dbContext.SaveChangesAsync();
 
         }
     }

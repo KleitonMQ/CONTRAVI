@@ -13,7 +13,8 @@ namespace CONTRAVI.Application.Commands.AdminCommands.CreateAdmin
         }
         public async Task<string> Handle(CreateAdminCommand request, CancellationToken cancellationToken)
         {
-            var admin = new Admin(request.UserName, request.PhoneNumber, request.email, request.Address, request.Password, request.Login);
+            var address = new Address(request.UF, request.CEP, request.City, request.Neighborhood, request.Street, request.Number, request.AddressComplement);
+            var admin = new Admin(request.UserName, request.PhoneNumber, request.email, address, request.Password, request.Login);
 
             return await _adminRepository.AddAdminAsync(admin);
         }

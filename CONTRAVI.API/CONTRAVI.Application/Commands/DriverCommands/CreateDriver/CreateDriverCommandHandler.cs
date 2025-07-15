@@ -14,7 +14,8 @@ namespace CONTRAVI.Application.Commands.DriverCommands.CreateDriver
         }
         public async Task<string> Handle(CreateDriverCommand request, CancellationToken cancellationToken)
         {
-            return await _driverRepository.AddDriverAsync(new Driver(request.UserName, request.PhoneNumber, request.Email, request.Address, request.CNH, request.Password, request.Login));
+            var address = new Address(request.UF, request.CEP, request.City, request.Neighborhood, request.Street, request.Number, request.AddressComplement);
+            return await _driverRepository.AddDriverAsync(new Driver(request.UserName, request.PhoneNumber, request.Email, address, request.CNH, request.Password, request.Login));
         }
     }
 }

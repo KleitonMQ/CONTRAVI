@@ -14,7 +14,8 @@ namespace CONTRAVI.Application.Commands.PassengerCommands.UpdatePassenger
         }
         public async Task<string> Handle(UpdatePassengerCommand request, CancellationToken cancellationToken)
         {
-            var passenger = new Passenger(request.UserName, request.PhoneNumber, request.Email, request.Address, request.CNS);
+            var address = new Address(request.UF, request.CEP, request.City, request.Neighborhood, request.Street, request.Number, request.AddressComplement);
+            var passenger = new Passenger(request.UserName, request.PhoneNumber, request.Email, address, request.CNS);
 
             return await _passengerRepository.UpdatePassengerAsync(passenger);
         }
