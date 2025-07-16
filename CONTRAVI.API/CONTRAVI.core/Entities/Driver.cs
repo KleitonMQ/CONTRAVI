@@ -6,6 +6,7 @@
         {
             CNH = cnh;
             Password = password;
+            Login = login;
         }
 
         public Driver() { }

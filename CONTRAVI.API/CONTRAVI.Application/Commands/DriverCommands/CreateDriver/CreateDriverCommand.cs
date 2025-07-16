@@ -1,10 +1,4 @@
-﻿using CONTRAVI.core.Entities;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CONTRAVI.Application.Commands.DriverCommands.CreateDriver
 {
@@ -17,6 +11,7 @@ namespace CONTRAVI.Application.Commands.DriverCommands.CreateDriver
         public string CNH { get; set; }
         public string Password { get; set; }
         public string Login { get; set; }
+
 
         // Address embutido
         public string UF { get; set; }

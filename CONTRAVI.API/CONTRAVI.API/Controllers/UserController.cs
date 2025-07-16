@@ -11,8 +11,6 @@ using CONTRAVI.Application.Queries.GetDriverByName;
 using CONTRAVI.Application.Queries.GetPassengerByCNS;
 using CONTRAVI.Application.Queries.GetPassengerByName;
 using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CONTRAVI.API.Controllers
@@ -29,7 +27,7 @@ namespace CONTRAVI.API.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("CreatePassenger")]
         public async Task<IActionResult> AddPassenger([FromBody]AddPassengerCommand command)
         {
             var result = await _mediator.Send(command);
@@ -60,7 +58,7 @@ namespace CONTRAVI.API.Controllers
         public async Task<IActionResult> CreateAdmin([FromBody]CreateAdminCommand command)
         {
             var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetAdminByNameQuery), new {name = result}, result);
+            return CreatedAtAction(nameof(GetAdminByName), new {name = result}, result);
         }
 
         [HttpPut("LoginAdmin")]
@@ -76,7 +74,7 @@ namespace CONTRAVI.API.Controllers
         {
             var result = await _mediator.Send(command);
             
-            return CreatedAtAction(nameof(GetAdminByNameQuery), new {name = result}, result);
+            return CreatedAtAction(nameof(GetAdminByName), new {name = result}, result);
         }
 
         [HttpPut("GetAdminByName")]
@@ -90,7 +88,7 @@ namespace CONTRAVI.API.Controllers
         public async Task<IActionResult> CreateDriver([FromBody]CreateDriverCommand command)
         {
             var restul = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetDriverByNameQuery), new { name = restul }, restul);
+            return CreatedAtAction(nameof(GetDriverByName), new { name = restul }, restul);
         }
 
         [HttpPut("UpdateDriver")]

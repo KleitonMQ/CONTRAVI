@@ -1,6 +1,6 @@
 ﻿namespace CONTRAVI.core.Entities
 {
-    public class User : BaseEntity
+    public abstract class User : BaseEntity
     {
         public User(string userName, string phoneNumber, string email, Address adress)
         {
