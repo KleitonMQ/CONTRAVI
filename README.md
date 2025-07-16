@@ -39,29 +39,32 @@
 - [x] Registrar Repository's no DI
 - [x] Criar e aplicar migrations:
 
+dotnet ef migrations add SegundaMigration --project CONTRAVI.Infrascruture --startup-project CONTRAVI.API
+dotnet ef database update --project CONTRAVI.Infrascruture --startup-project CONTRAVI.API
 
 ---
 
 ## 🔹 Etapa 4: Aplicar MediatR e CQRS (Application)
 
-- [ ] Instalar pacote MediatR
-- [ ] Criar pasta Users/Commands com:
-  - [ ] CreateUserCommand
-  - [ ] CreateUserHandler
-- [ ] Criar pasta Users/Queries com:
-  - [ ] GetAllUsersQuery
-  - [ ] GetAllUsersHandler
-- [ ] Criar pasta DTOs com UserDto
-- [ ] Registrar MediatR no Program.cs
+- [x] Instalar pacote MediatR
+- [x] Criar pasta Users/Commands com:
+  - [x] CreateUserCommand
+  - [x] CreateUserHandler
+- [x] Criar pasta Users/Queries com:
+  - [x] GetAllUsersQuery
+  - [x] GetAllUsersHandler
+- [x] Criar pasta DTOs com UserDto
+- [x] Registrar MediatR no Program.cs
 
 ---
 
 ## 🔹 Etapa 5: Configurar API
 
-- [ ] Criar UsersController com endpoints de GET e POST
-- [ ] Injetar IMediator e usar Send(command/query)
-- [ ] Rodar projeto e testar com Swagger/Postman
-
+- [x] Criar UsersController com endpoints de GET e POST
+- [x] Injetar IMediator e usar Send(command/query)
+- [-] Rodar projeto e testar com Swagger/Postman
+	- corrigir update passenger para receber apenas uma informação. (talvez)
+	- 
 ---
 
 ## 🔹 Etapa 6: FluentValidation
