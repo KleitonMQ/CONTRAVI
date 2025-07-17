@@ -27,8 +27,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
         public async Task<List<Admin>> GetAdminByNameAsync(string name)
         {
             return await _DBContext.Admin
-                         .Where(a => a.UserName.ToLower() == name.ToLower())
-                         .ToListAsync();
+                .Where(p => p.UserName.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
         }
 
         public async Task<string> UpdateAdminAsync(Admin admin)

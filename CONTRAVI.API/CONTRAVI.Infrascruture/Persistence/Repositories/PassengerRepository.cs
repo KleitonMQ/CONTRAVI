@@ -1,4 +1,5 @@
-﻿using CONTRAVI.core.Entities;
+﻿using System.Net;
+using CONTRAVI.core.Entities;
 using CONTRAVI.core.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,18 +22,24 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<Passenger> GetPassengerByCNSAsync(string cNS)
         {
-            return await _dbContext.Passenger.FirstOrDefaultAsync(p => p.CNS == cNS);
+            var existingPassenger = await _dbContext.Passenger.FirstOrDefaultAsync(p => p.CNS == cNS);
+            
+            if (existingPassenger == null) { return null; }
+            
+            return existingPassenger;
         }
 
         public async Task<List<Passenger>> GetPassengerByNameAsync(string name)
         {
-            return await _dbContext.Passenger.Where(p => p.UserName == name).ToListAsync();
+            return await _dbContext.Passenger
+                .Where(p => p.UserName.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
         }
 
         public async Task<string> UpdatePassengerAsync(Passenger passenger)
         {
-            var existingPassenger = await _dbContext.Passenger.FindAsync(passenger.Id);
-            if (existingPassenger == null) { return "Admin não encontrado."; }
+            var existingPassenger = await _dbContext.Passenger.FirstOrDefaultAsync(p => p.CNS == passenger.CNS);
+            if (existingPassenger == null) { return "Passageiro não encontrado."; }
 
             existingPassenger.Update(passenger.UserName, passenger.PhoneNumber, passenger.Email, passenger.CNS, passenger.Adress);
 

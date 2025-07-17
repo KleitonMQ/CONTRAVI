@@ -31,7 +31,9 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<List<Driver>> GetDriverByNameAsync(string name)
         {
-            return await _dbContext.Driver.Where(d => d.UserName.ToLower() == name.ToLower()).ToListAsync();
+            return await _dbContext.Driver
+                .Where(p => p.UserName.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
         }
 
         public async Task<string> UpdateDriverAsync(Driver driver)
