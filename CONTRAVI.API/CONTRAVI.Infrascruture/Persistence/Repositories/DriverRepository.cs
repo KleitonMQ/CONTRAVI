@@ -38,7 +38,7 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<string> UpdateDriverAsync(Driver driver)
         {
-            var existingDriver = await _dbContext.Driver.FindAsync(driver.Id);
+            var existingDriver = await _dbContext.Driver.FindAsync(driver.CNH);
             if (existingDriver == null)
             {
                 return "Motorista não encontrado.";

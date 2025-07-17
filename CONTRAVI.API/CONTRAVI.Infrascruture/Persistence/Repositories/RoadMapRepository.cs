@@ -27,15 +27,20 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
         public async Task<List<RoadMap>> GetRoadMapByDestinationAsync(string destination)
         {
-            var destinations = await _dbContext.Roads.Where(p => p.Destination == destination).ToListAsync();
+            var destinations = await _dbContext.Roads.Where(p => p.Destination.ToLower().Contains(destination.ToLower())).ToListAsync();
             return destinations;
 
         }
 
-        public async Task UpdateRoadMapAsync(RoadMap roadMap)
+        public async Task<RoadMap> GetRoadMapByIDAsync(int id)
         {
-            var existingRoadMap = await _dbContext.Roads.FindAsync(roadMap.Id);
-            if ( existingRoadMap == null)
+            return await _dbContext.Roads.FindAsync(id);
+        }
+
+        public async Task UpdateRoadMapAsync(RoadMap roadMap, int id)
+        {
+            var existingRoadMap = await _dbContext.Roads.FindAsync(id);
+            if (existingRoadMap == null)
             {
                 return;
             }

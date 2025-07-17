@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 
-namespace CONTRAVI.Application.Commands.RoadMapCommands
+namespace CONTRAVI.Application.Commands.RoadMapCommands.AddRoadMap
 {
     public class AddRoadMapCommand : IRequest<Unit>
     {
@@ -11,8 +11,8 @@ namespace CONTRAVI.Application.Commands.RoadMapCommands
             Destination = destination;
             Arrival = arrival;
         }
-        public string Departure { get; private set; }
-        public string Destination { get; private set; }
-        public string Arrival { get; private set; }
+        public string Departure { get; set; }
+        public string Destination { get; set; }
+        public string Arrival { get; set; }
     }
 }
