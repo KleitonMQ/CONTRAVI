@@ -28,7 +28,7 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
 
             await _dbContext.SaveChangesAsync();
         }
-
+        
         public async Task<bool> DeleteTripAsync(int id)
         {
             var trip = await _dbContext.Trip.FindAsync(id);
