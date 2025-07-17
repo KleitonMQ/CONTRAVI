@@ -27,7 +27,7 @@ namespace CONTRAVI.Application.Commands.Tripcommands.AddPassengerToTrip
 
             trip.AddPassenger(passengerDestination);
 
-            await _tripRepository.UpdateTripAsync(trip);
+            await _tripRepository.AddPassengerDestinationAsync(passengerDestination);
             return true;
         }
     }

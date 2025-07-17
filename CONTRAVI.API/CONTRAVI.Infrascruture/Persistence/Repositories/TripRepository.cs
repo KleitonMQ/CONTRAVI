@@ -24,11 +24,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             var existingTrip = await _dbContext.Trip.FindAsync(trip.Id);
             if (existingTrip == null) return;
 
-            existingTrip.DriverId = trip.DriverId;
-            existingTrip.VehicleId = trip.VehicleId;
-            existingTrip.RoadMapId = trip.RoadMapId;
+            existingTrip.UpdateTrip(trip.DriverId, trip.DriverId, trip.RoadMapId, trip.DepartureTime, trip.TripDate);
 
-            _dbContext.Trip.Update(existingTrip);
             await _dbContext.SaveChangesAsync();
         }
 
@@ -47,6 +44,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             return await _dbContext.Trip
                 .Where(t => t.VehicleId == vehicleId)
                 .Include(t => t.Vehicle)
+                .Include(t => t.Driver)
+                .Include(t => t.RoadMap)
                 .ToListAsync();
         }
 
@@ -55,6 +54,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             return await _dbContext.Trip
                 .Where(t => t.DriverId == driverId)
                 .Include(t => t.Driver)
+                .Include(t => t.RoadMap)
+                .Include(t => t.Vehicle)
                 .ToListAsync();
         }
 
@@ -63,6 +64,8 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
             return await _dbContext.Trip
                 .Where(t => t.RoadMapId == roadMapId)
                 .Include(t => t.RoadMap)
+                .Include (t => t.Vehicle)
+                .Include(t => t.Driver)
                 .ToListAsync();
         }
 
@@ -87,6 +90,9 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
         public async Task<List<Trip>> GetTripsByPassengerNameAsync(string name)
         {
             return await _dbContext.Trip
+                .Include(t => t.Driver)
+                .Include(t => t.Vehicle)
+                .Include(t => t.RoadMap)
                 .Include(t => t.PassengerDestination)
                     .ThenInclude(pd => pd.Passenger)
                 .Where(t => t.PassengerDestination.Any(pd => pd.Passenger.UserName.ToLower().Contains(name.ToLower())))
@@ -96,10 +102,25 @@ namespace CONTRAVI.Infrascruture.Persistence.Repositories
         public async Task<List<Trip>> GetTripsByPassengerCNSAsync(string cns)
         {
             return await _dbContext.Trip
+                .Include(t => t.Driver)
+                .Include(t => t.Vehicle)
+                .Include(t => t.RoadMap)
                 .Include(t => t.PassengerDestination)
                     .ThenInclude(pd => pd.Passenger)
                 .Where(t => t.PassengerDestination.Any(pd => pd.Passenger.CNS == cns))
                 .ToListAsync();
+        }
+
+        public async Task RemovePassengerDestination(PassengerDestination destino)
+        {
+            _dbContext.PassengerDestination.Remove(destino);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task AddPassengerDestinationAsync(PassengerDestination destino)
+        {
+            _dbContext.PassengerDestination.Add(destino);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

@@ -18,9 +18,12 @@ namespace CONTRAVI.Application.Commands.Tripcommands.RemovePassengerFromTrip
             var trip = await _tripRepository.GetTripByIdAsync(request.TripId);
             if (trip == null) return false;
 
-            trip.RemovePassenger(request.PassengerId);
+            var destino = trip.PassengerDestination.FirstOrDefault(pd => pd.PassengerId == request.PassengerId);
+            if (destino == null) return false;
 
-            await _tripRepository.UpdateTripAsync(trip);
+            // Remove do banco diretamente
+            await _tripRepository.RemovePassengerDestination(destino);
+
             return true;
         }
     }

@@ -15,5 +15,7 @@ namespace CONTRAVI.core.Repositories
         Task<List<Trip>> GetTripsByPassengerNameAsync(string name);
         Task<List<Trip>> GetTripsByPassengerCNSAsync(string cns);
         Task<Trip?> GetTripByIdAsync(int id);
+        Task RemovePassengerDestination(PassengerDestination destino);
+        Task AddPassengerDestinationAsync(PassengerDestination destino);
     }
 }

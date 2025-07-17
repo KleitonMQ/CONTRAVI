@@ -16,13 +16,13 @@
         {
             
         }
-        public int DriverId { get; set; }
+        public int DriverId { get; private set; }
         public Driver Driver { get; private set; }
 
-        public int VehicleId { get; set; }
+        public int VehicleId { get; private set; }
         public Vehicle Vehicle { get; private set; }
 
-        public int RoadMapId { get; set; }
+        public int RoadMapId { get; private set; }
         public RoadMap RoadMap { get; private set; }
         public List<PassengerDestination> PassengerDestination { get; private set; }
         public DateTime DepartureTime { get; private set; }
